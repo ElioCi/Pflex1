@@ -93,21 +93,17 @@ if os.path.exists(pdfReport):
         #    base64_pdf = base64.b64encode(f.read()).decode("utf-8")
         #    pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" width="700" height="500" type="application/pdf"></iframe>'
         #    st.markdown(pdf_display, unsafe_allow_html=True)
-         with open(pdfReport, "rb") as f:
-                st.download_button(
-                    label="📄 Open Report in a new window",
-                    data=f,
-                    file_name="ReportPflex1.pdf",
-                    mime="application/pdf",
-                    help='***Save Report in your local drive***'
-                )
-        # Separatore linea rossa
-        st.markdown(
-            """
-            <hr style="border: 0.5px solid red;">
-            """,
-            unsafe_allow_html=True
-        )
+        with open(pdfReport, "rb") as f:
+            st.download_button(
+                label="📄 Open Report in a new window",
+                data=f,
+                file_name="ReportPflex1.pdf",
+                mime="application/pdf",
+                help='***Save Report in your local drive***'
+            )
+            
+    # Separatore linea rossa
+    st.markdown("""<hr style="border: 0.5px solid red;">""", unsafe_allow_html= True)
         
     #with open(pdfReport, "rb") as pdf_file:
     #    st.sidebar.download_button(
@@ -127,5 +123,6 @@ else:
     
         
        
+
 
 
