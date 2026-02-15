@@ -19,7 +19,6 @@ def cleanup_sessions(session_dir="sessions", max_age_hours=6):   #24
         if os.stat(f).st_mtime < now - max_age_hours * 3600:   #*3600   
             os.remove(f)
 
-    
 
 PAGE_KEY = "visited_immissione_dati"
 
@@ -30,17 +29,68 @@ if st.session_state.get(PAGE_KEY):
 
 st.session_state[PAGE_KEY] = True
 
+
 # generazione di un ID sessione di lavoro che resta fisso per tutta la durata della sessione
 if 'session_id' not in st.session_state:
     st.session_state.session_id = str(uuid.uuid4())
     
-print ("id = ", st.session_state.session_id)
+#print ("id = ", st.session_state.session_id)
 
 if 'prot' not in st.session_state or not st.session_state.prot:
     st.session_state.prot = False
     
 # pulisci cartella sessions ogni 6 ore
 cleanup_sessions()
+
+
+# 👮🪪 Parte relativa alla gestione del Token: lettura da indirizzo e memorizzazione in file json
+# Chiave segreta utilizzata per firmare il token
+SECRET_KEY = 'EC1'
+
+# Funzione per verificare il token
+def verify_token(token):
+    try:
+        # Decodifica e verifica il token
+        decoded_token = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return decoded_token
+    except PyJWTError as e:
+        # Token non valido o scaduto
+        st.error("Token invalid or expired: " + str(e))
+        return None
+
+# Acquisisci il token dai parametri dell'URL
+# query_params = st.experimental_get_query_params()
+query_params = st.query_params
+
+#token = query_params.get("token", [None])[0]
+token = query_params.get("token", [None])
+
+if token:
+    # Verifica il token
+    sessionDir = 'sessions'
+    fileProt = f"{sessionDir}/prot_status_{st.session_state.session_id}.json"
+    decoded_token = verify_token(token)
+    if decoded_token:
+        st.success("Authorized access!")
+        st.write("Token decoded:", decoded_token)
+        st.session_state.prot = True
+        with open(fileProt, "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+            # Inserisci qui il codice dell'applicazione Streamlit
+    else:
+        st.error("Access denied: token invalid or expired.")
+        st.info("Go back to the 'enginapps' blog and launch again the app")
+        st.session_state.prot = False
+        with open(fileProt, "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+        st.stop()
+else:
+    st.error("No token provided, access denied.")
+    with open(fileProt, "w") as file:
+            json.dump({"prot": st.session_state.prot}, file)
+    st.stop()
+
+# - 🪪 -------------------Fine gestione Token---------------------------
 
 
 st.markdown("---")
@@ -130,3 +180,4 @@ button_html = """
 st.markdown(button_html, unsafe_allow_html=True)
  
 print ('prot', st.session_state.prot)
+
