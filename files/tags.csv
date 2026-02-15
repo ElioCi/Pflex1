@@ -1,0 +1,23 @@
+﻿Tag;Meaning;Unit
+Rck/fck;Characteristic compressive strength of concrete (cube/cylinder);MPa
+ec1, ecu;Concrete strain at fcd and ultimate strain;-
+gc;Partial safety factor for concrete;-
+alpha_cc;Long term effects on the compressive strength;-
+fcd;Design compressive strength of concrete;MPa
+Ec;Modulus of elasticity of concrete;MPa
+ftk;Characteristic tensile strength of steel;MPa
+fyk;Yield strength of steel;MPa
+Es;Modulus of elasticity of steel;MPa
+esd;Steel strain at fyd;-
+gs;Partial safety factor for steel;-
+fyd;Design strength of steel;MPa
+dia;Diameter of the reinforcement bars;mm
+y_layer;Distance of the reinforcement layer from the top side;mm
+x_first;Distance of the first bar from left side;mm
+rebar_spacing;Rebar spacing;mm
+axial, Mx, My;Axial and bending loads;kN, kNm            
+Xn;Neutral axis depth from top side;mm
+fcc;Compressive strength of concrete;MPa
+fsc;Compressive strength of steel;MPa
+fst;Tensile strength of steel;MPa
+MR;Moment capacity;kNm

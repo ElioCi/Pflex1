@@ -1,0 +1,4 @@
+Load_C,SF(Mx-N),SF(My-N),SF(Mx-My),Check
+CL_1,0.26,0.99,0.69,Ok
+CL_2,1.89,0.99,1.62,Fail
+CL_3,0.99,0.99,1.32,Fail

@@ -1,0 +1,7 @@
+﻿id,Physical Quantity,Unit of Measurement,Symbol
+0,Dimensions,Millimiter,mm
+1,Reinforcement Diameter,Millimeter,mm
+2,Axial Loads,kiloNewton,kN
+3,Bending Moment,kiloNewton by meter,kN*m
+4,Strenght,MegaPascal,MPa
+

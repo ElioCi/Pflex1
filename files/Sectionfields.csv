@@ -1,0 +1,8 @@
+﻿X = -inf;field;kmin;kmax;eps_s_min;eps_s_max;eps_c_min;eps_c_max;stress type;rupture type;section
+X = 0;1;-inf;0;0,01;0,01;-;0;max def of tensioned steel;failure due to tensioned steel;under-reinforced
+X = 0,167 d;2;0;0,167;0,01;0,01;0;0,002;max def of tensioned steel;failure due to tensioned steel;under-reinforced
+X = 0,259 d;2a;0,167;0,259;0,01;0,01;0,002;0,0035;max def of tensioned steel;failure due to tensioned steel;under-reinforced
+X = 0,642 d;3;0,259;0,642;0,01;0,001955;0,0035;0,0035;steel yelding / concrete crushing;balanced failure steel/concrete;balanced 
+X = d;4;0,642;1;0,001955;0;0,0035;0,0035;concrete crushing;failure due to concrete;over-reinforced
+X = h;5;1;1+delta;< 0;< 0;0,0035;0,0035;concrete crushing;failure due to concrete;over-reinforced
+X = +inf;6;1+delta;+inf;< 0;< 0;0,0035;0,0035;concrete crushing / compressed steel yelding ;failure due to concrete;over-reinforced
