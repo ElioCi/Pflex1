@@ -95,7 +95,7 @@ if os.path.exists(pdfReport):
         #    st.markdown(pdf_display, unsafe_allow_html=True)
         with open(pdfReport, "rb") as f:
             st.download_button(
-                label="📄 Open Report in a new window",
+                label="💾 Download Report on your local drive",
                 data=f,
                 file_name="ReportPflex1.pdf",
                 mime="application/pdf",
@@ -123,6 +123,7 @@ else:
     
         
        
+
 
 
 
