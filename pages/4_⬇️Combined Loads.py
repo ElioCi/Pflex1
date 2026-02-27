@@ -96,7 +96,7 @@ checked = col1.checkbox(
 
 if checked == True:
     
-    st.markdown("### Modify / Add Loads Combinations")
+    st.markdown("### Modify / Add Load Combinations")
 
     # Numero di strati o layers
     
@@ -176,5 +176,6 @@ if checked == True:
 
     #    
         st.success("Combined loads saved successfully!")
+
 
 
