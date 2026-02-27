@@ -96,13 +96,13 @@ checked = col1.checkbox(
 
 if checked == True:
     
-    st.markdown("### Modify / Add Reinforcement Layers")
+    st.markdown("### Modify / Add Loads Combinations")
 
     # Numero di strati o layers
     
     if not df_loads_caricati.empty:
         num_loads = st.number_input(
-            "🔢 Adjust Number of combined loads",
+            "🔢 Adjust Number of load combinations",
             min_value=1, max_value=nloads_max,
             #value=len(df_loads_caricati), step=1
             value= st.session_state.num_loads, step =1
@@ -111,7 +111,7 @@ if checked == True:
         
     else:
         num_loads = st.number_input(
-            "🔢 Number of combined loads",
+            "🔢 Number of load combinations",
             min_value=1, max_value=nloads_max, value=1, step=1
         )
 
@@ -176,4 +176,5 @@ if checked == True:
 
     #    
         st.success("Combined loads saved successfully!")
+
 
